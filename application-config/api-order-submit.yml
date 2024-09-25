@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: client-consumer
+  cloud:
+    config:
+      uri: http://localhost:9091/
+server:
+  port: 10101
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      # 向服务端的注册地址
+      defaultZone: http://eureka-8081.com:8081/eureka/,http://eureka-8082.com:8082/eureka
+
+
